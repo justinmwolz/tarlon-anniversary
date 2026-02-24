@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Degular Display";
+  src: url("/fonts/DegularDisplay-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Degular Display";
+  src: url("/fonts/DegularDisplay-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Basier Circle";
+  src: url("/fonts/BasierCircle-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme inline {
+  --color-moon-0: #ffffff;
+  --color-moon-50: #f6f8f8;
+  --color-moon-100: #f2f4f4;
+  --color-moon-200: #e1f1fa;
+  --color-moon-300: #afbcbc;
+  --color-abyss-400: #878d8c;
+  --color-abyss-500: #667070;
+  --color-abyss-600: #4a4f4f;
+  --color-abyss-700: #3a3c3b;
+  --color-abyss-800: #0e1111;
+  --color-abyss-900: #000000;
+  --color-caribbean-50: #e6fdf9;
+  --color-caribbean-100: #cdfbf2;
+  --color-caribbean-200: #9cf7e6;
+  --color-caribbean-300: #6af3d9;
+  --color-caribbean-400: #39efcd;
+  --color-caribbean-500: #07ebc0;
+  --color-caribbean-800: #035e4d;
+  --color-mist-100: #d9e4e5;
+  --color-mist-200: #afdfd4;
+  --color-mist-300: #81a5a9;
+  --color-mist-400: #678487;
+  --color-mist-500: #4e6366;
+  --font-headline: "Degular Display", "DM Sans", "Inter", system-ui, sans-serif;
+  --font-body: "Basier Circle", "DM Sans", "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --background: #0e1111;
+  --foreground: #f2f4f4;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/* Handwritten style for captions */
+.font-handwritten {
+  font-family: var(--font-handwritten), "Caveat", cursive;
+}
+
+/* Polaroid card */
+.polaroid {
+  background: #ffffff;
+  padding: 12px 12px 40px;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 1px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.polaroid img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Washi tape effect */
+.tape {
+  position: absolute;
+  width: 80px;
+  height: 28px;
+  background: rgba(156, 247, 230, 0.35);
+  z-index: 10;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.tape-top-left {
+  top: -10px;
+  left: -15px;
+  transform: rotate(-18deg);
+}
+
+.tape-top-right {
+  top: -10px;
+  right: -15px;
+  transform: rotate(15deg);
+}
+
+.tape-top-center {
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+}
+
+.tape-pink {
+  background: rgba(225, 241, 250, 0.45);
+}
+
+.tape-yellow {
+  background: rgba(175, 223, 212, 0.45);
+}
+
+/* Sticky note effect */
+.sticky-note {
+  background: #f6f8f8;
+  padding: 24px;
+  position: relative;
+  box-shadow:
+    2px 4px 12px rgba(0, 0, 0, 0.15),
+    0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.sticky-note::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--color-caribbean-300);
+}
+
+/* Fog animation for SF vibes */
+@keyframes fog-drift {
+  0% {
+    transform: translateX(-10%);
+    opacity: 0.06;
+  }
+  50% {
+    opacity: 0.12;
+  }
+  100% {
+    transform: translateX(10%);
+    opacity: 0.06;
+  }
+}
+
+.fog-layer {
+  animation: fog-drift 20s ease-in-out infinite alternate;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Stat counter highlight */
+.stat-number {
+  font-family: var(--font-headline);
+  font-weight: 600;
+  line-height: 1;
+}
